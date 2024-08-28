@@ -1,5 +1,4 @@
-import { IProduct } from "../../types";
-import { ISearchParams } from "./types";
+import { IProduct } from "./types";
 import { productDao } from "./dao";
 
 const {
@@ -19,7 +18,7 @@ class ProductService {
         throw Error((error as Error).message);
       }
     }
-    async getProducts(searchParams: ISearchParams) {
+    async getProducts(searchParams: IProduct) {
       const {
         category,
         salersId,

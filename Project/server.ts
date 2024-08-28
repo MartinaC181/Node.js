@@ -3,12 +3,8 @@ import dbConnect from "./db/dbConnect";
 import dotenv from "dotenv";
 import router from "./routes";
 import userRouter from "./api/user/routes";
-import User from "./api/user/model";
-import { userService } from "./api/user/service";
-
-
-
-
+import productRouter from "./api/product/routes";
+import categoryRouter from "./api/category/routes";
 
 dotenv.config(); 
 
@@ -25,15 +21,9 @@ dbConnect();
 
 app.use("/user", userRouter);
 
-app.get("/Users", (req, res) => {
-  const users = userService.getUsers();
-  res.send(users);
-});
+app.use("/product", productRouter);
 
-
-
-
-
+app.use("/category", categoryRouter);
 
 
 

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { productService } from "./service";
-import { ISearchParams } from "./types";
+import { IProduct } from "./types";
+
 const { getProduct, getProducts, createProduct, deleteProduct, editProduct } =
   productService;
 
@@ -15,7 +16,7 @@ class ProductController {
     }
   }
   async getProducts(req: Request, res: Response) {
-    const searchParams: ISearchParams = req.query as unknown as ISearchParams;
+    const searchParams: IProduct = req.query as unknown as IProduct;
   
     try {
       const products = await getProducts(searchParams);

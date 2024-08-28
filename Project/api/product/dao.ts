@@ -1,5 +1,5 @@
 import Product from "./model";
-import { IProduct } from "../../types";
+import { IProduct } from "./types";
 
 class ProductDao {
   async getAllProducts(

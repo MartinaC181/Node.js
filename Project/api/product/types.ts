@@ -1,6 +1,6 @@
 type filterByPrice = "lower" | "higher";
-
-export interface ISearchParams {
+  
+  export interface IProduct {
     _id: string | undefined;
     name: string;
     description: string;
@@ -14,4 +14,4 @@ export interface ISearchParams {
     page: string;
     limit: string;
   }
-  
+
