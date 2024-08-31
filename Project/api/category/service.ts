@@ -15,7 +15,6 @@ class CategoryService {
     async getCategories() {
         try {
             const categories = await getAllCategories();
-            console.log(categories);
             return categories;
         } catch (error) {
             throw Error((error as Error).message);

@@ -26,6 +26,19 @@ const productSchema = new Schema({
     type: String,
     default: "",
   },
+  salersId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: false,
+  },
+  filterByPrice: {
+    type: String,
+    default: "",
+  },
+  priceRange: {
+    type: String,
+    default: "",
+  },
 });
 
 const Product = model("Product", productSchema);

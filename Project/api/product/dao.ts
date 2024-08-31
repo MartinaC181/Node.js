@@ -1,3 +1,4 @@
+
 import Product from "./model";
 import { IProduct } from "./types";
 
@@ -37,6 +38,7 @@ class ProductDao {
     }
   }
   async createProduct(product: IProduct) {
+    
     try {
       const newProduct = await Product.create(product);
       return newProduct;

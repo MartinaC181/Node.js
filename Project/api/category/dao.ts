@@ -4,7 +4,6 @@ const CategoryDao = {
     async getAllCategories(){
         try {
         const categories = await Category.find();
-        console.log(categories);
         return categories;
         } catch (error) {
         throw Error((error as Error).message);
@@ -14,6 +13,7 @@ const CategoryDao = {
         try {
         const category = await Category.findById(categoryId);
         return category;
+        
         } catch (error) {
         throw Error((error as Error).message);
         }

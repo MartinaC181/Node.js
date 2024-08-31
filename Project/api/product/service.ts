@@ -20,7 +20,7 @@ class ProductService {
     }
     async getProducts(searchParams: IProduct) {
       const {
-        category,
+        categoryId,
         salersId,
         filterByPrice,
         priceRange,
@@ -40,7 +40,7 @@ class ProductService {
       }
       try {
         const products = await getAllProducts(
-          category,
+          categoryId,
           salersId,
           priceStart,
           priceEnd,
@@ -54,7 +54,7 @@ class ProductService {
         throw Error((error as Error).message);
       }
     }
-    async createProduct(product: IProduct) {
+    async createProductService(product: IProduct) {
       try {
         const newProduct = await createProduct(product);
         return newProduct;

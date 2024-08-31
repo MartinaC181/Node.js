@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
 import { productService } from "./service";
 import { IProduct } from "./types";
+import mongoose from "mongoose";
+import { categoryService } from "../category/service";
 
-const { getProduct, getProducts, createProduct, deleteProduct, editProduct } =
+const { getProduct, getProducts, createProductService, deleteProduct, editProduct } =
   productService;
 
 class ProductController {
@@ -27,9 +29,31 @@ class ProductController {
     }
   }
   async createProduct(req: Request, res: Response) {
-    const product = req.body;
+    const { name, description, category , stock, price, image } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(category)) {
+      return res.status(400).json({ error: "Invalid category ID" });
+    }
+    
+    const product: IProduct = { 
+      name, 
+      description, 
+      categoryId: category,
+      stock, 
+      price, 
+      image,
+      filterByPrice: "",
+      priceRange: "",
+      page: "",
+      limit: ""
+     };
     try {
-      const newProduct = await createProduct(product);
+      const cat = await categoryService.getCategory(category);
+      if (!cat) {
+        return res.status(404).json({ error: "Category not found" });
+      } 
+
+      const newProduct = await createProductService(product);
       return res.status(200).json(newProduct);
     } catch (error) {
       return res.status(500).json({ error });
