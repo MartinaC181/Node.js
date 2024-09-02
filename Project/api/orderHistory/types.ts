@@ -11,5 +11,5 @@ export interface IOrderHistory {
     userId: string;
     products: IProductsOH[];
     totalPrice: number;
-    createdAt?: Date;
+    orderDate?: String;
 }

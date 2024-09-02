@@ -27,8 +27,9 @@ class OHController {
         }
     }
     async createOH(req: Request, res: Response) {
-        const { totalPrice, userId, products,  } = req.body;
-        const orderHistory: IOrderHistory = { totalPrice, userId, products };
+        const { totalPrice, userId, products, orderDate } = req.body;
+        const orderHistory: IOrderHistory = { userId, products, totalPrice, orderDate };
+        
         try {
             const newOH = await createOH(orderHistory);
             return res.status(200).json(newOH);

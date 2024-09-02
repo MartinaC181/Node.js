@@ -32,13 +32,13 @@ const orderHistorySchema = new Schema({
         ref: "User",
         required: true,
     },
-    productsId: [productsOHSchema],
-    quantity: {
+    products: [productsOHSchema],
+    totalPrice: {
         type: Number,
         required: true,
     },
     orderDate: {
-        type: Date,
+        type: String,
         required: true,
     },
 });

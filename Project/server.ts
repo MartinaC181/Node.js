@@ -5,6 +5,7 @@ import router from "./routes";
 import userRouter from "./api/user/routes";
 import productRouter from "./api/product/routes";
 import categoryRouter from "./api/category/routes";
+import OHrouter from "./api/orderHistory/routes"; 
 
 dotenv.config(); 
 
@@ -25,7 +26,7 @@ app.use("/product", productRouter);
 
 app.use("/category", categoryRouter);
 
-
+app.use("/orderHistory", OHrouter);
 
 app.listen(PORT, HOST, () => {
   console.log(`Server is running on http://${HOST}:${PORT}`);
