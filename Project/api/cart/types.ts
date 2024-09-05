@@ -1,5 +1,15 @@
 export interface ICart {
-    products: { _id: string; quantity: number }[];
+    userId: string;
+    products: [
+        {
+            productId: string;
+            name: string;
+            price: number;
+            quantity: number;
+            categoryId: string;
+        },
+    ];
     totalPrice: number;
-  }
+    orderDate?: string;
+}
   

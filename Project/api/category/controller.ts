@@ -50,14 +50,5 @@ class CategoryController {
             return res.status(400).json({ error });
         }
     }
-    /*async getProductsByCategory(req: Request, res: Response) {
-        const { id } = req.params;
-        try {
-            const products = await getProductsByCategory(id);
-            return res.status(200).json(products);
-        } catch (error) {
-            return res.status(400).json({ error });
-        }
-    }*/
 }
 export const categoryController = new CategoryController();

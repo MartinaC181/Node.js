@@ -41,29 +41,31 @@ class UserService {
     }
   }
   async loginUser(user: { email: string; password: string }) {
-    try {
-      const { email, password } = user;
-      const existingUser = await getUserByMail(email);
-      if (!existingUser) {
-        throw new Error("Invalid email");
-      }
-      const isPasswordValid = await compare(password, existingUser.password!);
-      if (!isPasswordValid) {
-        throw new Error("Invalid password");
-      }
-      const token = sign(
-        {
-          userId: existingUser._id,
-          email: existingUser.email,
-        },
-        process.env.JWT_SECRET!,
-        { expiresIn: "1h" }
-      );
-
-      return token;
-    } catch (error) {
-      throw new Error((error as Error).message);
+    const { email, password } = user;
+    const existingUser = await getUserByMail(email);
+    
+    //verificamos si el usuario existe
+    if (!existingUser) {
+      throw new Error("Invalid email");
     }
+    const isPasswordValid = await compare(password, existingUser.password);
+    console.log(password);
+    console.log(existingUser.password);
+    console.log(isPasswordValid);
+
+    //verificamos si la contraseña es correcta
+    if (!isPasswordValid) {
+      throw new Error("Invalid password");
+    }
+    const token = sign(
+      {
+        userId: existingUser._id,
+        email: existingUser.email,
+      },
+      process.env.JWT_SECRET!,
+      { expiresIn: "1h" }
+    );
+    return token;
   }
 }
 

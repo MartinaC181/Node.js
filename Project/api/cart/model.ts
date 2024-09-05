@@ -1,6 +1,7 @@
-import { Schema, model } from "mongoose";
+import { model, Schema } from "mongoose";
+import { ICart } from "./types";
 
-const orderHistorySchema = new Schema({
+const cartSchema = new Schema({
     userId: {
         type: Schema.Types.ObjectId,
         ref: "User",
@@ -17,15 +18,15 @@ const orderHistorySchema = new Schema({
                 type: String,
                 required: true,
             },
-                price: {
+            price: {
                 type: Number,
                 required: true,
             },
-                quantity: {
+            quantity: {
                 type: Number,
                 required: true,
             },
-                categoryId: {
+            categoryId: {
                 type: Schema.Types.ObjectId,
                 ref: "Category",
                 required: true,
@@ -36,11 +37,6 @@ const orderHistorySchema = new Schema({
         type: Number,
         required: true,
     },
-    orderDate: {
-        type: String,
-        required: true,
-    },
 });
-
-const OrderHistory = model("OrderHistory", orderHistorySchema);
-export default OrderHistory;
+const Icart = model("Cart", cartSchema);
+export default Icart;
