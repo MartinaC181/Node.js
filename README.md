@@ -4,6 +4,9 @@ Este proyecto es una aplicación de back end que gestiona usuarios, productos, h
 
 ## Características
 Usuarios: Gestión de usuarios con autenticación y autorización.
+
 Productos: CRUD (Crear, Editar, Actualizar, Eliminar) de productos.
+
 Historial de Compras: Registro de compras realizadas por los usuarios.
+
 Categorías: Organización de productos en categorías.
