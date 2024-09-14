@@ -1,9 +1,0 @@
-#Dependencies
-node_modules/
-
-#Passswords
-.env
-
-#Modelo bodies para las consultas
-ayudas.txt
-
