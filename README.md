@@ -1,6 +1,6 @@
 # Poyecto práctico - Módulo Back End con NodeJs
 
-Este proyecto es una aplicación de back end que gestiona usuarios, productos, historial de compras y categorías. Está diseñado para proporcionar una base sólida para una tienda en línea o un sistema de gestión de inventarios.
+Este proyecto es una aplicación de backend que gestiona usuarios, productos, historial de compras y categorías. Está diseñado para proporcionar una base sólida para una tienda en línea o un sistema de gestión de inventarios.
 
 ## Características
 Usuarios: Gestión de usuarios con autenticación y autorización.
